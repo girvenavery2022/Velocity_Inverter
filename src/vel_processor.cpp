@@ -18,9 +18,9 @@ class VelInverter : public rclcpp::Node
   private:
     void topic_callback(const geometry_msgs::msg::Twist::SharedPtr msg) const
     {
-      msg->linear.x = msg->linear.x * -1;
-      publisher_->publish(*msg);
-    }
+      msg->linear.x = msg->linear.x * -0.25;
+	  	publisher_->publish(*msg);
+		}
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
 };
